@@ -1,5 +1,8 @@
 package springmvc.config;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import springmvc.rootconfig.RootConfig;
@@ -21,5 +24,11 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	protected String[] getServletMappings() {
 		return new String[]{"/"};
 	}
-
+	 
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+		//设置load-on-startup优先级
+		registration.setLoadOnStartup(1);
+		registration.setMultipartConfig(new MultipartConfigElement("/tmp/springmvc/uploads"));
+	}
 }

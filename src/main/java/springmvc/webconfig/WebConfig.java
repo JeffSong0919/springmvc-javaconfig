@@ -3,6 +3,8 @@ package springmvc.webconfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -13,7 +15,7 @@ import springmvc.web.HomeController;
 
 @Configuration
 @EnableWebMvc//springmvc配置注解
-//@ComponentScan("springmvc.web")//启动组件扫描，没有这个只能显式声明在配置类中的控制器
+@ComponentScan("springmvc.web")//启动组件扫描，没有这个只能显式声明在配置类中的控制器
 public class WebConfig extends WebMvcConfigurerAdapter {
 	//视图解析器配置
 	@Bean
@@ -36,4 +38,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //	public HomeController homeController(){
 //		return new HomeController();
 //	}
+	@Bean
+	public MultipartResolver multipartResolver(){
+		return new StandardServletMultipartResolver();
+	}
 }
