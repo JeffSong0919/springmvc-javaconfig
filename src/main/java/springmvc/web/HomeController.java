@@ -30,7 +30,9 @@ public class HomeController {
 //		String orderId="1";
 //		Order order=mongo.findById(orderId, Order.class);
 //		System.out.println(order.getCustomer());
-		List<Order> list=orderRepository.findByCustomer("gg");
+//		List<Order> list=orderRepository.findByCustomer("gg");
+//		System.out.println(list.size());
+		List<Order> list=orderRepository.findOrdersByType("2");
 		System.out.println(list.size());
 		return "index";
 	}
