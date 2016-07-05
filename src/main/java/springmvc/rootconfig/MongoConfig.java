@@ -16,7 +16,7 @@ import com.mongodb.MongoCredential;
 
 @Configuration
 // 启用MongoDB的Repository功能
-@EnableMongoRepositories(basePackages = "springmvc.orders.db")	
+@EnableMongoRepositories(basePackages = "springmvc.orders.db",repositoryImplementationPostfix="Impl")	
 public class MongoConfig {
 	@Autowired
 	private Environment env;

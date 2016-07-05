@@ -1,5 +1,6 @@
 package springmvc.bean;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 
@@ -8,7 +9,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
-public class Order {
+public class Order implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2621510960323005435L;
 	@Id
 	private String id;
 	@Field("client")
